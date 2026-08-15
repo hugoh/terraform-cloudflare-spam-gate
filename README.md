@@ -28,6 +28,8 @@ Requires Email Routing to already be enabled on the zone (e.g. via `cloudflare_e
 
 Works with both OpenTofu (`tofu`) and Terraform.
 
+See [`examples/basic`](./examples/basic) for a complete, runnable example.
+
 ## Inputs
 
 | Name | Description | Required | Default |
@@ -45,6 +47,15 @@ Works with both OpenTofu (`tofu`) and Terraform.
 | Name | Description |
 |---|---|
 | `rule_id` | ID of the created email routing rule. |
+
+## Testing
+
+Automated tests live in [`tests/`](./tests) and run against a mocked `cloudflare`
+provider — no real API calls or credentials required:
+
+```console
+tofu test
+```
 
 ## Versioning
 
