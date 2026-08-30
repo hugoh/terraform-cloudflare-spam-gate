@@ -1,11 +1,11 @@
 mock_provider "cloudflare" {}
 
 variables {
-  zone_id             = "test-zone-id"
-  from                = "contact@example.com"
-  account_id          = "test-account-id"
-  kv_namespace_id     = "test-kv-namespace-id"
-  destinations        = ["you@your-real-inbox.example"]
+  zone_id         = "test-zone-id"
+  from            = "contact@example.com"
+  account_id      = "test-account-id"
+  kv_namespace_id = "test-kv-namespace-id"
+  destinations    = ["you@your-real-inbox.example"]
 }
 
 run "defaults" {

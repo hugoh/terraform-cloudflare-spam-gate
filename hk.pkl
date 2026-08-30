@@ -1,20 +1,11 @@
-amends "package://github.com/jdx/hk/releases/download/v1.54.0/hk@1.54.0#/Config.pkl"
-import "package://github.com/hugoh/hk-config/releases/download/v1.4.0/hk-config@1.4.0#/base.pkl" as Base
+amends "package://github.com/jdx/hk/releases/download/v1.56.1/hk@1.56.1#/Config.pkl"
+import "package://github.com/hugoh/hk-config/releases/download/v1.6.0/hk-config@1.6.0#/base.pkl" as Base
 
 min_hk_version = Base.min_hk_version
 
 local linters = new Mapping<String, Step> {
     ...Base.base
-    ["tofu_fmt"] = {
-        glob = List("*.tf")
-        check = "tofu fmt -check -diff"
-        fix = "tofu fmt"
-    }
-    ["tofu_validate"] = {
-        glob = List("*.tf")
-        check = "tofu init -backend=false -input=false && tofu validate"
-        depends = List("tofu_fmt")
-    }
+    ...Base.tf
 }
 
 hooks {
